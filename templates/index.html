@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>yt-mood</title>
+</head>
+<body>
+    <h1>yt-mood</h1>
+    <form method="POST">
+        <input type="text" name="mood" placeholder="How are you feeling?" required>
+        <input type="number" name="time" min="1" max="10" placeholder="Time (1-10)" required>
+        <button type="submit">Find videos</button>
+    </form>
+
+    {% for video in videos %}
+        <div>
+            <a href="{{ video.url }}" target="_blank">{{ video.title }}</a>
+            <p>{{ video.channel }} | {{ video.duration }} | {{ "{:,}".format(video.views) }} views</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
